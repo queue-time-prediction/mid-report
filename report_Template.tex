@@ -582,10 +582,14 @@ The results of the data analysis showed that there was not much relationship bet
 
 
 \section{Progress}
-[TODO...]
+In this section, we will discuss the current progress of our experiment. We first cluster the dataset and train a predictor for each cluster. When predicting a sample, we first judge its clustering category and predict it with the corresponding predictor. The details will be covered below. 
 
 \subsection{Experimental Purpose}
-[TODO...]
+We continue to use the linear model based on our previous experiments and add several features to it. The reason why linear model is used for the experiment is that for large-scale data, its convergence speed is fast, which is convenient for us to test features. At the same time, in our previous planning, we considered the combination of linear model and LSTM. However, LSTM results should only be input as a feature into the linear model, and our linear model should be able to predict without LSTM. So, our first experiment purpose is to train a linear model that could make good predictions.
+
+In our previous plan, we wanted to combine the similarity with the model. In a recent study, A. Pal\cite{pal2021integrated} did something similar. He clustered the data sets and trained a predictor for each cluster. We used clustering on a linear model based on his idea. We use K-means for clustering. The role of clustering is actually to transform data from big heterogeneous pool to small homogeneous clusters. For dataset transformation, there are many similar  studies\cite{murali2016qespera}\cite{nurmi2007qbets}. So, the purpose of our second experiment is to use K-means to improve the accuracy of the linear model.
+
+Finally, our final research goal is to deploy the model to the SUSTECH Taiyi cluster. Therefore, we performed data mining and data cleaning on the data from Taiyi. The obtained data was pre-processed and trained on the outside model. So, the purpose of our third experiment is to train Taiyi data on our model.
 
 \subsection{Procedure}
 [TODO...]
