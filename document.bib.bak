@@ -1,0 +1,114 @@
+@article{park2022queue,
+  title={Queue congestion prediction for large-scale high performance computing systems using a hidden Markov model},
+  author={Park, Ju-Won and Kwon, Min-Woo and Hong, Taeyoung},
+  journal={The Journal of Supercomputing},
+  pages={1--22},
+  year={2022},
+  publisher={Springer}
+}
+
+@inproceedings{kapadia1999predictive,
+  title={Predictive application-performance modeling in a computational grid environment},
+  author={Kapadia, Nirav H and Fortes, Jos{\'e} AB and Brodley, Carla E},
+  booktitle={Proceedings. The Eighth International Symposium on High Performance Distributed Computing (Cat. No. 99TH8469)},
+  pages={47--54},
+  year={1999},
+  organization={IEEE}
+}
+
+@inproceedings{kumar2014prediction,
+  title={Prediction of queue waiting times for metascheduling on parallel batch systems},
+  author={Kumar, Rajath and Vadhiyar, Sathish},
+  booktitle={Workshop on Job Scheduling Strategies for Parallel Processing},
+  pages={108--128},
+  year={2014},
+  organization={Springer}
+}
+
+@inproceedings{kumar2012identifying,
+  title={Identifying quick starters: towards an integrated framework for efficient predictions of queue waiting times of batch parallel jobs},
+  author={Kumar, Rajath and Vadhiyar, Sathish},
+  booktitle={Workshop on Job Scheduling Strategies for Parallel Processing},
+  pages={196--215},
+  year={2012},
+  organization={Springer}
+}
+
+@inproceedings{li2005efficient,
+  title={Efficient response time predictions by exploiting application and resource state similarities},
+  author={Li, Hui and Groep, David and Wolters, Lex},
+  booktitle={The 6th IEEE/ACM International Workshop on Grid Computing, 2005.},
+  pages={8--pp},
+  year={2005},
+  organization={IEEE}
+}
+
+@article{wilson1997improved,
+  title={Improved heterogeneous distance functions},
+  author={Wilson, D Randall and Martinez, Tony R},
+  journal={Journal of artificial intelligence research},
+  volume={6},
+  pages={1--34},
+  year={1997}
+}
+
+@inproceedings{nurmi2007qbets,
+  title={QBETS: Queue bounds estimation from time series},
+  author={Nurmi, Daniel and Brevik, John and Wolski, Rich},
+  booktitle={Workshop on Job Scheduling Strategies for Parallel Processing},
+  pages={76--101},
+  year={2007},
+  organization={Springer}
+}
+
+@article{murali2016qespera,
+	title={Qespera: an adaptive framework for prediction of queue waiting times in supercomputer systems},
+	author={Murali, Prakash and Vadhiyar, Sathish},
+	journal={Concurrency and Computation: Practice and Experience},
+	volume={28},
+	number={9},
+	pages={2685--2710},
+	year={2016},
+	publisher={Wiley Online Library}
+}
+
+@InProceedings{10.1007/BFb0053984,
+author="Smith, Warren
+and Foster, Ian
+and Taylor, Valerie",
+editor="Feitelson, Dror G.
+and Rudolph, Larry",
+title="Predicting application run times using historical information",
+booktitle="Job Scheduling Strategies for Parallel Processing",
+year="1998",
+publisher="Springer Berlin Heidelberg",
+address="Berlin, Heidelberg",
+pages="122--142",
+abstract="We present a technique for deriving predictions for the run times of parallel applications from the run times of ``similar'' applications that have executed in the past. The novel aspect of our work is the use of search techniques to determine those application characteristics that yield the best definition of similarity for the purpose of making predictions. We use four workloads recorded from parallel computers at Argonne National Laboratory, the Cornell Theory Center, and the San Diego Supercomputer Center to evaluate the effectiveness of our approach. We show that on these workloads our techniques achieve predictions that are between 14 and 60 percent better than those achieved by other researchers; our approach achieves mean prediction errors that are between 40 and 59 percent of mean application run times.",
+isbn="978-3-540-68536-4"
+}
+
+@InProceedings{10.1007/3-540-47954-6_11,
+author="Smith, Warren
+and Taylor, Valerie
+and Foster, Ian",
+editor="Feitelson, Dror G.
+and Rudolph, Larry",
+title="Using Run-Time Predictions to Estimate Queue Wait Times and Improve Scheduler Performance",
+booktitle="Job Scheduling Strategies for Parallel Processing",
+year="1999",
+publisher="Springer Berlin Heidelberg",
+address="Berlin, Heidelberg",
+pages="202--219",
+abstract="On many computers, a request to run a job is not serviced immediately but instead is placed in a queue and serviced only when resources are released by preceding jobs. In this paper, we build on runtime prediction techniques that we developed in previous research to explore two problems. The first problem is to predict how long applications will wait in a queue until they receive resources. We develop runtime estimates that result in more accurate wait-time predictions than other run-time prediction techniques. The second problem we investigate is improving scheduling performance. We use run-time predictions to improve the performance of the least-work-first and backfill scheduling algorithms. We end that using our run-time predictor results in lower mean wait times for the workloads with higher offered loads and for the backfill scheduling algorithm.",
+isbn="978-3-540-47954-3"
+}
+
+@Book{smith1999resource,
+  author    = {Smith, Warren Willits},
+  publisher = {Northwestern University},
+  title     = {Resource management in metacomputing environments},
+  year      = {1999},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}
