@@ -617,21 +617,21 @@ In the treating process for Taiyi, we noticed that most records did not contain 
 This part is to add timing information to the data, describing the state of the system and the queue when the Job is submitted, and also to standardize the format of the data. In fact, this part converts the RawSample format to Sample format and calculates the attributes system load and queue load that hold the timing information.
 
 \subsubsection{Labeling}
-In this section, we use the K-means algorithm to cluster the dataset and label each data with its category. In fact, the clustering is performed using the four features mentioned in the previous section. Also, this step saves the centroids of each cluster so that we can determine which cluster a new data belongs to.
+In this part, we use the K-means algorithm to cluster the dataset and label each data with its category. In fact, the clustering is performed using the four features mentioned in the previous section. Also, this step saves the centroids of each cluster so that we can determine which cluster a new data belongs to.
 
-\subsubsection{Training and testing}
+\subsubsection{Training and Testing}
 Our training and prediction processes are combined with similarity methods, which here refer to clustering.
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\linewidth,scale=1.00]{train.png}
-	\caption{Experimental procedure}
+	\caption{Train and Test procedure}
 	\label{train.png}
 \end{figure}
 
-Fig \ref{structure.png}. shows the process of our training and prediction. To perform training, we divide the dataset into multiple datasets by clustering. For each dataset, we train with a linear model. In testing, for each sample, we determine its clustering category by centroids and use the corresponding predictor to make predictions. 
+Fig \ref{train.png}. shows the process of our training and prediction. To perform training, we divide the dataset into multiple datasets by clustering. For each dataset, we train with a linear model.In addition, when training the model, we took the logarithm of all features in order to reduce the difference of absolute values of the data and to facilitate the calculation. In testing, for each sample, we determine its clustering category by centroids and use the corresponding predictor to make predictions. 
 
 \subsection{Result}
-In this experiment, we conducted experiments on three datasets. The first dataset is the Theta dataset from Argonne National Laboratory, USA, with a data volume of 53748. The second dataset is the Mira dataset, also from Argonne National Laboratory with a data volume of 157190. The third dataset is Taiyi dataset, from Taiyi Supercomputer of Southern University of Science and Technology, China, with data volume of 601500.
+In this experiment, we conducted experiments on three datasets called Theta, Mira and Taiyi which are mentioned above.
 
 We use two evaluation metrics, the average absolute error (AAE) and the percentage prediction error (PPE) of response time, to measure the effectiveness of our work. 
 
@@ -642,7 +642,7 @@ $$
 
 In this formula, \textbf{predictedwaitingtime} refers to the predicted queuing time, \textbf{actualwaitingtime} refers to the actual waiting time, and \textbf{actualresponsetime} refers to the actual response time, which is the actual waiting time plus the actual execution time.
 
-The metric PPE indicates the extent to which the prediction error affects the work for different execution times. The same queue waiting error has a greater impact on tasks with shorter execution times; for example, if the error in predicting queue waiting time is 1 hour, then this prediction has a higher impact on jobs with an execution time of 10 minutes than on jobs with an execution time of 10 hours. Thus, the metric PPE is a good reflection of the property of the degree of impact of prediction error on jobs with different execution times.
+The metric PPE indicates the extent to which the prediction error affects the work for different execution times. The same queue waiting error has a greater impact on tasks with shorter execution times; for example, if the error in predicting queue waiting time is 1 hour, then this prediction has a higher impact on jobs with an execution time of 10 minutes than on jobs with an execution time of 10 hours. 
 
 
 \begin{figure}[H]
@@ -699,6 +699,8 @@ In the data sets theta and mira, PPE and AAE have a very significant change with
 
 
 \begin{center}
+	The Effect Of Using Clustering
+	\\
 	\begin{tabular}{|c|c|c|} 
 		\hline
 		&  PPEDecrease & AAEDecrease\\ [0.5ex] 
@@ -718,6 +720,8 @@ The effect brought by clustering is not so obvious, especially on the clusters o
 
 And we have achieved results similar to the original paper. We compare the results of mira taking \textbf{K}=6 and theta taking \textbf{K}=10 with the results of the original paper, respectively.  
 \begin{center}
+	AAE And PPE For Different Data Sets
+	\\
 	\begin{tabular}{|c|c|c|c|c|} 
 		\hline
 		Log name &  PPE & AAE & paper PPE & paper AAE \\[0.5ex] 
@@ -730,12 +734,12 @@ And we have achieved results similar to the original paper. We compare the resul
 	\label{table:compare}
 \end{center}
 
-The results show that our AAE, although slightly higher than the results of the original paper, is very close to the results of the original paper, while the PPE is already better than the results of the original paper. Even so, our model did not work well in real-world tests, even though we managed to replicate cutting-edge research results.
+The results show that our AAE, although slightly higher than the results of the original paper, is very close to the results of the original paper, while the PPE is already better than the results of the original paper. Even so, our model did not work well in real-world tests,  even though we managed to replicate cutting-edge research results. For example, in our tests, there are many test samples where the prediction error is tens of times the actual value, even though the prediction error is not large for the \textbf{actualresponsetime}.
 
 Based on the above experiments, we draw the following conclusions.
 \begin{itemize}
 	\item Linear model predictions are feasible.
-	\item clustering does not have a particularly significant effect on the improvement of model accuracy. However, the combination of similarity and model does improve the model accuracy.
+	\item Clustering does not have a particularly significant effect on the improvement of model accuracy. However, the combination of similarity and model does improve the model accuracy.
 	\item PPE and AAE are not a good indicator of how well the model actually performs.
 \end{itemize}
 
