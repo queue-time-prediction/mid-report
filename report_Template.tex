@@ -622,7 +622,66 @@ In the treating process for Taiyi, we noticed that most records did not contain 
 [please describe procedure D(training details, model details, etc.).]
 
 \subsection{Result}
-[TODO...]
+In this experiment, we conducted experiments on three datasets. The first dataset is the Theta dataset from Argonne National Laboratory, USA, with a data volume of 53748. The second dataset is the Mira dataset, also from Argonne National Laboratory with a data volume of 157190. The third dataset is Taiyi dataset, from Taiyi Supercomputer of Southern University of Science and Technology, China, with data volume of 601500.
+
+We use two evaluation metrics, the average absolute error (AAE) and the percentage prediction error (PPE) of response time, to measure the effectiveness of our work. 
+
+AAE is the average of the absolute difference between predicted and actual waiting times. According to R. Kumar and S. Vadhiyar's study \cite{kumarandvadhiyar}, PPE is defined as
+$$
+PPE=\frac{\left | predicted waiting time- actual waiting time \right |}{actual response time} 
+$$
+
+In this formula, \textbf{predictedwaitingtime} refers to the predicted queuing time, \textbf{actualwaitingtime} refers to the actual waiting time, and \textbf{actualresponsetime} refers to the actual response time, which is the actual waiting time plus the actual execution time.
+
+The metric PPE indicates the extent to which the prediction error affects the work for different execution times. The same queue waiting error has a greater impact on tasks with shorter execution times; for example, if the error in predicting queue waiting time is 1 hour, then this prediction has a higher impact on jobs with an execution time of 10 minutes than on jobs with an execution time of 10 hours. Thus, the metric PPE is a good reflection of the property of the degree of impact of prediction error on jobs with different execution times.
+
+
+\begin{figure}[H]
+	\begin{minipage}[t]{0.45\linewidth}
+		\includegraphics[width=\linewidth]{AAEInTheta.png} 
+		\caption{the line graph of the AAE values in the Theta dataset as the number of clusters k varies} 
+		\label{Fig:AAEInTheta}
+	\end{minipage}%
+	\hfill%
+	\begin{minipage}[t]{0.45\linewidth}
+		\includegraphics[width=\linewidth]{PPEInTheta.png}
+		\caption{The line graph of the PPE values in the Theta dataset as the number of clusters k varies}
+		\label{Fig:PPEInTheta}
+	\end{minipage} 
+\end{figure}
+
+\begin{figure}[H]
+	\begin{minipage}[t]{0.45\linewidth}
+		\includegraphics[width=\linewidth]{AAEInMira.png} 
+		\caption{The line graph of the AAE values in the Mira dataset as the number of clusters k varies} 
+		\label{Fig:AAEInMira}
+	\end{minipage}%
+	\hfill%
+	\begin{minipage}[t]{0.45\linewidth}
+		\includegraphics[width=\linewidth]{PPEInMira.png}
+		\caption{The line graph of the PPE values in the Mira dataset as the number of clusters k varies}
+		\label{Fig:PPEInMira}
+	\end{minipage} 
+\end{figure}
+
+\begin{figure}[H]
+	\begin{minipage}[t]{0.45\linewidth}
+		\includegraphics[width=\linewidth]{AAEInTaiyi.png} 
+		\caption{The line graph of the AAE values in the Taiyi dataset as the number of clusters k varies} 
+		\label{Fig:AAEInTaiyi}
+	\end{minipage}%
+	\hfill%
+	\begin{minipage}[t]{0.45\linewidth}
+		\includegraphics[width=\linewidth]{PPEInTaiyi.png}
+		\caption{The line graph of the PPE values in the Taiyi dataset as the number of clusters k varies}
+		\label{Fig:PPEInTaiyi}
+	\end{minipage} 
+\end{figure}
+
+
+
+We explored the effect of the change in the number of groups \textbf{K} of clusters on AAE and PPE. The above six line graphs are the results of the experiments, and each row represents the Theta dataset, the Mira dataset and the Taiyi dataset, respectively. The horizontal coordinates in the line graphs are the number of groupings \textbf{K} of the clusters, and the vertical coordinates are the AAE and PPE, separately.
+
 
 \subsection{Analysis and Conclusion}
 [TODO...]
