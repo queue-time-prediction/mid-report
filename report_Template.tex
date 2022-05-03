@@ -608,7 +608,7 @@ In paper \cite{pal2021integrated}, their model was constructed in the following 
 Fig \ref{structure.png}. shows the whole structure of the experiment. First, we need to convert multiple raw data into a unified format for further process. In this case, procedure A describes the process that transfering different raw data into a RawSample format, which contains submit timestamp, start timestamp, finish timestamp, CPU node used, request wall time, and queue name. Then, RawSample need to be construct to the feature that we actually used. Procedure B will convert RawSample format into Sample format, which contains CPU hours, CPU number, queue load, system load, and actual queue time. Now data is clean for training. Procedure C will first do clustering as the original paper said to give each sample a label, then procedure D will use different model to train these labeled samples.
 
 \subsubsection{Preprocessing}
-Procedure A is about convert different raw datasets into RawSamples. We use three different dataset for our model: Theta, Mira, and Taiyi log. Theta and Mira are public dataset available on the Internet. We use about 70,000 and 150,000 records in them respectively. Taiyi log is from our institution HPC system. It contains about 3,000,000 records originally.
+Procedure A is about convert different raw datasets into RawSamples. We use three different dataset for our model: Theta, Mira, and Taiyi log. Theta and Mira are public dataset available on the Internet. We use about 50,000 and 150,000 records in them respectively. Taiyi log is from our institution HPC system. It contains about 3,000,000 records originally.
 
 In the treating process for Taiyi, we noticed that most records did not contain wall time. We suspect that it is because different queues have time limit themselves, so most user will not worry about running their tasks forever and ignore setting wall time. This is an alarm because it means that the wall time feature may not be a good feature for all the high performance cluster. After filtering valid wall time and other features, only about 600,000 records remained.
 
@@ -750,7 +750,7 @@ Based on the above experiments, we draw the following conclusions.
 	
 	\item According to our experimental results, the practical use of the models from the cutting edge research is very poor. We need to find a model with practical value and combine it with temporal information (LSTM) and similarity algorithms.
 	
-	\item Also, deploy our model to the school's Taiyi cluster. In the process of data processing in Taiyi, we found that a considerable part of Taiyi data is without the feature of Wall time, but the traditional model is highly dependent on the feature of Wall time. So we need to find a model that does not rely on the feature of Wall time.
+	\item Also, we will try to deploy our model to the school's Taiyi cluster. In the process of data processing in Taiyi, we found that a considerable part of Taiyi data is without the feature of Wall time, but the traditional model is highly dependent on the feature of Wall time. So we need to find a model that does not rely on the feature of Wall time.
 \end{enumerate}
 
 
