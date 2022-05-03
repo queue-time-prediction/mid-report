@@ -592,7 +592,34 @@ In our previous plan, we wanted to combine the similarity with the model. In a r
 Finally, our final research goal is to deploy the model to the SUSTECH Taiyi cluster. Therefore, we performed data mining and data cleaning on the data from Taiyi. The obtained data was pre-processed and trained on the outside model. So, the purpose of our third experiment is to train Taiyi data on our model.
 
 \subsection{Procedure}
-[TODO...]
+In this section, we will talk about our experimental procedure to achieve these purposes above. We mainly  reproduced experiments in paper \cite{pal2021integrated}.
+Section \ref{structure} describes the whole process, and the rest subsections explains details for each small part.
+
+\subsubsection{Structure}
+\label{structure}
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\linewidth,scale=1.00]{structure.png}
+	\caption{Experimental procedure}
+	\label{structure.png}
+\end{figure}
+In paper \cite{pal2021integrated}, their model was constructed in the following way: First, they extracted four features from the dataset, which contains [balabalabala... about reproduced paper process]
+
+Fig \ref{structure.png}. shows the whole structure of the experiment. First, we need to convert multiple raw data into a unified format for further process. In this case, procedure A describes the process that transfering different raw data into a RawSample format, which contains submit timestamp, start timestamp, finish timestamp, CPU node used, request wall time, and queue name. Then, RawSample need to be construct to the feature that we actually used. Procedure B will convert RawSample format into Sample format, which contains CPU hours, queue load, system load, and actual queue time. Now data is clean for training. Procedure C will first do clustering as the original paper said to give each sample a label, then procedure D will use different model to train these labeled samples.
+
+\subsubsection{Preprocessing}
+Procedure A is about convert different raw datasets into RawSamples. We use three different dataset for our model: Theta, Mira, and Taiyi log. Theta and Mira are public dataset available on the Internet. We use about 70,000 and 150,000 records in them respectively. Taiyi log is from our institution HPC system. It contains about 3,000,000 records originally.
+
+In the treating process for Taiyi, we noticed that most records did not contain wall time. We suspect that it is because different queues have time limit themselves, so most user will not worry about running their tasks forever and ignore setting wall time. This is an alarm because it means that the wall time feature may not be a good feature for all the high performance cluster. After filtering valid wall time and other features, only about 600,000 records remained.
+
+\subsubsection{Sample Converting}
+[please describe procedure B. It should be short btw, may only contain one sentence.]
+
+\subsubsection{Labeling}
+[please describe procedure C.]
+
+\subsubsection{Training}
+[please describe procedure D(training details, model details, etc.).]
 
 \subsection{Result}
 [TODO...]
